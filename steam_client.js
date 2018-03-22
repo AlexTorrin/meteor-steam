@@ -18,13 +18,13 @@ Steam.requestCredential = function(options, credentialRequestCompleteCallback) {
   var credentialToken = Random.secret();
   var loginStyle = OAuth._loginStyle('steam', config, options);
   var state = OAuth._stateParam(loginStyle, credentialToken, options ? options.redirectUrl : undefined);
-  var redirectUri = OAuth._redirectUri('steam', config, {state: state});
+  var redirectUri = OAuth._redirectUri('steam', config, {state: state}, config.absoluteUrl);
 
   var loginUrl = 'https://steamcommunity.com/openid/login' +
       '?openid.ns=http://specs.openid.net/auth/2.0' +
       '&openid.mode=checkid_setup' +
       '&openid.return_to=' + redirectUri +
-      '&openid.realm=' + Meteor.absoluteUrl() +
+      '&openid.realm=' + Meteor.absoluteUrl(config.absoluteUrl) +
       '&openid.ns.sreg=http://openid.net/extensions/sreg/1.1' +
       '&openid.identity=http://specs.openid.net/auth/2.0/identifier_select' +
       '&openid.claimed_id=http://specs.openid.net/auth/2.0/identifier_select' +
