@@ -1,6 +1,6 @@
 Package.describe({
-  name: 'scholtzm:steam',
-  version: '1.2.0',
+  name: 'alextorrin:meteor-steam',
+  version: '1.0.1',
   summary: 'Steam OpenID integration for Meteor',
   git: 'https://github.com/scholtzm/meteor-steam',
   documentation: 'README.md'
